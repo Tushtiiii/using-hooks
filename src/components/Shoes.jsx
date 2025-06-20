@@ -21,7 +21,7 @@ function Shoes({ addToCart }){
               <img src={shoe.image} id='img' />
               <h3>{shoe.name}</h3>
               <p>Price: ${shoe.price}</p>
-              <button onClick={() => addToCart(shoe)}>Add to Cart</button>
+              <button onClick={() => addToCart(shoe)} id='add-item'>Add to Cart</button>
             </div>
           ))}
         </div>

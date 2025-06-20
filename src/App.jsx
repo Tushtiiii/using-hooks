@@ -32,6 +32,14 @@ const App = () => {
       removeFromCart(id);
     }
   };
+  const increaseQuantity = (id) => {
+    const existingShoe = cart.find(item => item.id === id);
+    if (existingShoe.quantity > 1) {
+      setCart(cart.map(item => 
+        item.id === id ? { ...existingShoe, quantity: existingShoe.quantity + 1 } : item
+      ));
+    }
+  };
 
   const getTotal = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
@@ -42,7 +50,7 @@ const App = () => {
       <Navbar />
       <div style={{ display: 'flex' }}>
       <Shoes addToCart={addToCart} />
-      <Cart cart={cart} removeFromCart={removeFromCart} decreaseQuantity={decreaseQuantity} total={getTotal()} />
+      <Cart cart={cart} removeFromCart={removeFromCart} decreaseQuantity={decreaseQuantity} increaseQuantity={increaseQuantity}  total={getTotal()} />
     </div>
     </div>
   );
