@@ -1,20 +1,21 @@
 import React from 'react';
+import './App.css';
 
 const Cart = ({ cart, removeFromCart,  decreaseQuantity,increaseQuantity, total }) => {
   return (
-    <div style={{width: '100%',  borderLeft: '1px solid #ccc', margin: '10px' ,padding:'20px' }}>
+    <div className='cart'>
       <h2>Shopping Cart</h2>
       {cart.length === 0 ? (
         <p>Your cart is empty</p>
       ) : (
         <div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', margin: '10px 0',fontWeight:'bold'  }}>
+          <div className='cart-header'>
             <p>Item Name</p>
             <p>Price  </p>
               <p>Quantity</p>
               </div>
           {cart.map(item => (
-            <div key={item.id} style={{ display: 'flex', justifyContent: 'space-between', margin: '10px 0' }}>
+            <div key={item.id} className='cart-item'>
               <div>
                 <h4>{item.name}</h4>
                 </div>
