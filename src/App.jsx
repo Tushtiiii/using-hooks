@@ -34,7 +34,7 @@ const App = () => {
   };
   const increaseQuantity = (id) => {
     const existingShoe = cart.find(item => item.id === id);
-    if (existingShoe.quantity > 1) {
+    if (existingShoe.quantity >= 1) {
       setCart(cart.map(item => 
         item.id === id ? { ...existingShoe, quantity: existingShoe.quantity + 1 } : item
       ));
