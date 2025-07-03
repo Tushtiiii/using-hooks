@@ -5,9 +5,9 @@ const shoes = [
   { id: 1, name: 'Running Shoe', price: 59, image: '/assets/shoe4.jpg' },
   { id: 2, name: 'Basketball Shoe', price: 79, image: '/assets/shoe3.jpg' },
   { id: 3, name: 'Casual Shoe', price: 49, image: '/assets/shoe1.png' },
-  { id: 4, name: 'Running Shoe', price: 59, image: '/assets/shoe2.png' },
-  { id: 5, name: 'Basketball Shoe', price: 79, image: '/assets/shoe3.jpg' },
-  { id: 6, name: 'Casual Shoe', price: 49, image: '/assets/shoe4.jpg' },
+  { id: 4, name: 'sports Shoe', price: 59, image: '/assets/shoe2.png' },
+  { id: 5, name: ' dancing Shoe', price: 79, image: '/assets/R (1).png' },
+  { id: 6, name: ' Shoe', price: 49, image: '/assets/R.jpg' },
 ];
 
 function Shoes({ addToCart }){   
