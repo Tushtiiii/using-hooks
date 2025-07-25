@@ -37,9 +37,10 @@ a{
 }
 .payment{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    width: 50%;
     margin: 20px;
-    padding: 20px;
+    padding: 50px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 }
 button{

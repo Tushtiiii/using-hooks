@@ -19,9 +19,7 @@ function Payment() {
       <input type="radio" name="cash" id="cash" />
       <label htmlFor="card">Credit Card</label>
       <input type="radio" name="card" id="card"/>
-      <br />
-      <h2>Payment Details</h2>
-      <div>
+        <h2>Payment Details</h2>
         <label htmlFor="card-no">Enter your card-number</label>
         <br />
         <input type="text" placeholder="card number" />
@@ -39,7 +37,6 @@ function Payment() {
         </p>
         <button>Confirm Payment</button>
         <button onClick={handleGoToShopping}>go to Shopping</button>
-      </div>
     </div>
   );
 }
