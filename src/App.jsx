@@ -1,57 +1,32 @@
-import React, { useState} from 'react';
+import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar.jsx';
 import Shoes from './components/Shoes.jsx';
 import Cart from './components/Cart.jsx';
+import Payment from './components/Payment.jsx';
+import { ShopProvider, ShopContext } from './context/ShopContext.jsx';
+import { useContext } from 'react';
 
-const App = () => {
-  const [cart, setCart] = useState([]);
-
-  const addToCart = (shoe) => {
-    const existingShoe = cart.find(item => item.id === shoe.id);
-    if (existingShoe) {
-      setCart(cart.map(item => 
-        item.id === shoe.id ? { ...existingShoe, quantity: existingShoe.quantity + 1 } : item
-      ));
-    } else {
-      setCart([...cart, { ...shoe, quantity: 1 }]);
-    }
-  };
-
-  const removeFromCart = (id) => {
-    setCart(cart.filter(item => item.id !== id));
-  };
-
-  const decreaseQuantity = (id) => {
-    const existingShoe = cart.find(item => item.id === id);
-    if (existingShoe.quantity > 1) {
-      setCart(cart.map(item => 
-        item.id === id ? { ...existingShoe, quantity: existingShoe.quantity - 1 } : item
-      ));
-    } else {
-      removeFromCart(id);
-    }
-  };
-  const increaseQuantity = (id) => {
-    const existingShoe = cart.find(item => item.id === id);
-    if (existingShoe.quantity >= 1) {
-      setCart(cart.map(item => 
-        item.id === id ? { ...existingShoe, quantity: existingShoe.quantity + 1 } : item
-      ));
-    }
-  };
-
-  const getTotal = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
-  };
+const AppContent = () => {
+  const { shop } = useContext(ShopContext);
 
   return (
-    <div className="App">
+    <>
       <Navbar />
       <div style={{ display: 'flex' }}>
-      <Shoes addToCart={addToCart} />
-      <Cart cart={cart} removeFromCart={removeFromCart} decreaseQuantity={decreaseQuantity} increaseQuantity={increaseQuantity}  total={getTotal()} />
-    </div>
+        {shop ? <Shoes /> : <Payment />}
+        <Cart />
+      </div>
+    </>
+  );
+};
+
+const App = () => {
+  return (
+    <div className="App">
+      <ShopProvider>
+        <AppContent />
+      </ShopProvider>
     </div>
   );
 };
