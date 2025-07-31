@@ -15,19 +15,20 @@ function Shoes() {
   const { addToCart } = useContext(ShopContext);
 
   return (
-    <div>
-      <h2 style={{ textAlign: 'center' }}>Available Shoes</h2>
+    <>
+    <div style={{ display: 'flex'}}> 
       <div className='shoelist'>
         {shoes.map(shoe => (
           <div key={shoe.id}>
             <img src={shoe.image} id='img' />
             <h3>{shoe.name}</h3>
             <p>Price: ${shoe.price}</p>
-            <button onClick={() => addToCart(shoe)} id='add-item'>Add to Cart</button>
+              <button onClick={() => addToCart(shoe)} id='add-item'>Add to Cart</button>
           </div>
         ))}
       </div>
     </div>
+    </>
   );
 }
 

@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
 import "../App.css";
 import { ShopContext } from '../context/ShopContext.jsx';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const { cart, removeFromCart, decreaseQuantity, increaseQuantity, getTotal, goToPayment } = useContext(ShopContext);
 
-  const handleGoToPayment = () => {
-    goToPayment();
-  };
+
 
   return (
     <div className="cart">
@@ -39,7 +38,9 @@ const Cart = () => {
             </div>
           ))}
           <h3>Total: ${getTotal()}</h3>
-          <button onClick={handleGoToPayment}>go to payment</button>
+          <Link to="/payment">
+          <button >go to payment</button>
+          </Link>
         </div>
       )}
     </div>

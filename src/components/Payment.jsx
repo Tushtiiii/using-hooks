@@ -1,20 +1,15 @@
 import React, { useContext } from "react";
 import '../App.css';
 import { ShopContext } from '../context/ShopContext.jsx';
+import { Link } from 'react-router-dom';
+
 
 function Payment() {
-  const { cart, getTotal, goToShopping } = useContext(ShopContext);
-
-  if (cart.length === 0) {
-    return <h2>Your cart is empty</h2>;
-  } 
-
-  const handleGoToShopping = () => {
-    goToShopping();  
-  }
+  const { cart, getTotal } = useContext(ShopContext);
 
   return (
-    <div className="payment">
+    <>
+    <div className="payment"  style={{ display: 'flex' }}>
       <label htmlFor="cash">Cash on delivery</label>
       <input type="radio" name="cash" id="cash" />
       <label htmlFor="card">Credit Card</label>
@@ -36,8 +31,11 @@ function Payment() {
           Total Amount: $<span>{getTotal()}</span>
         </p>
         <button>Confirm Payment</button>
-        <button onClick={handleGoToShopping}>go to Shopping</button>
-    </div>
+        <Link to="/">
+         <button style={{ padding: "10px 20px" }} >go to Shopping</button>
+        </Link>
+      </div>      
+    </>
   );
 }
 
